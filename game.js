@@ -1,11 +1,11 @@
 let questions = [  
     {
-        question: 'Lets get familliar with game , select option A',
-        choice1: 'A',
-        choice2: 'B',
-        choice3: 'C',
-        choice4: 'D',
-        answer: 1,
+        question: 'How many sizes of headers are available in HTML by default?',
+        choice1: '5',
+        choice2: '1',
+        choice3: '3',
+        choice4: '6',
+        answer: 4,
     }, 
     {
         question: 'Which HTML tag is used to define an inline style?',
@@ -31,7 +31,7 @@ let questions = [
         choice4: '<! Comment>',
         answer: 2,
     },
- ];
+];
 
 let qbox = document.getElementById("Qbox");
 let sc = document.getElementById("sc");
@@ -42,17 +42,19 @@ let pg = document.getElementById("page");
 let ov = document.getElementById("over");
 let correct = document.getElementById("correct");
 let wrong = document.getElementById("wrong");
-let idx = 0;
+
+let set1 = new Set([...Array(questions.length).keys()]);
+
 let score = 0;
 let attempted = 0;
-Game(idx);
+Game();
 
-function Game(idx) {
-    if (idx >= questions.length) {
+function Game() {
+    if (set1.size === 0) {
         pg.classList.add("hide");
         ov.classList.remove("hide");
         let finSc = document.getElementById("finScore");
-        finSc.innerText = "Final Score : "+score;
+        finSc.innerText = "Final Score : " + score;
 
         let restartButton = document.getElementById("restartButton");
         restartButton.addEventListener("click", function() {
@@ -62,13 +64,17 @@ function Game(idx) {
         return;
     }
 
+    let idxArray = Array.from(set1);
+    let idx = idxArray[Math.floor(Math.random() * idxArray.length)];
+    
+    set1.delete(idx);
+
     let q = document.getElementById("que");
     let qtext = questions[idx].question;
     let choice1 = questions[idx].choice1;
     let choice2 = questions[idx].choice2;
     let choice3 = questions[idx].choice3;
     let choice4 = questions[idx].choice4;
-
 
     q.innerHTML = qtext;
     document.getElementById("Atext").innerText = choice1;
@@ -80,12 +86,14 @@ function Game(idx) {
     // tot.innerText = options.length;
 
     options.forEach(option => {
-        option.addEventListener('click', handleClick);
+        option.style.backgroundColor = "black"; 
+        option.removeEventListener('click', handleClick); 
+        option.addEventListener('click', handleClick); 
     });
 
     function handleClick() {
         let option = this;
-        if (option.id == questions[idx].answer) {
+        if (parseInt(option.id) === questions[idx].answer) {
             correct.play();
             option.style.backgroundColor = "green";
             score += 10;
@@ -95,15 +103,15 @@ function Game(idx) {
         } else {
             option.style.backgroundColor = "red";
             wrong.play();
+            attempted++;
+            att.innerText = attempted;
         }
 
         updateProgressBar(attempted, questions.length);
         options.forEach(opt => opt.removeEventListener('click', handleClick));
 
         setTimeout(function () {
-            option.style.backgroundColor = "black";
-            idx++;
-            Game(idx);
+            Game();
         }, 1000);
     }
 
@@ -111,8 +119,4 @@ function Game(idx) {
         let progress = (attempted / total) * 100;
         progressBar.style.width = progress + "%";
     }
-
 }
-
-
- 
