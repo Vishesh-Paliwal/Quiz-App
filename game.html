@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div id="page">
+    <nav>
+        <div id="corr">
+            <h1>ATTEMPTED :</h1>
+            <h1><span id="att">0</span>/4</h1>
+        </div>
+        <div id="progressBarContainer">
+            <div id="progressBar"></div>
+        </div>
+        <div id="score">
+            <h1>SCORE :</h1>
+            <h2 id="sc">0</h2>
+        </div>
+    </nav>
+    <div id="Qbox">
+        <p id="que">Lets get familliar with game , select option 'A'</p>
+        <div class="option">
+            <Audio id="correct"><source src="audio/correct.wav"></Audio>
+            <Audio id="wrong"><source src="audio/wrong.mp3"></Audio>
+            <div id="1">
+                <button>A</button>
+                <p id="Atext">This is option A</p>
+            </div>
+            <div id="2">
+                <button>B</button>
+                <p id="Btext">This is option B</p>
+            </div>
+            <div id="3">
+                <button>C</button>
+                <p id="Ctext">This is option C</p>
+            </div>
+            <div id="4">
+                <button>D</button>
+                <p id="Dtext">This is option D</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="over" class="hide">
+    <h1 id="finScore"></h1>
+    <h1>GAME OVER</h1>
+    <button id="restartButton">PLAY AGAIN</button>
+</div>
+</body>
+<script src="game.js"></script>
+</html>

@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#Qbox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+#page{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(84, 178, 221);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav div{
+    margin: 20px;
+    padding: 20px;
+}
+
+#score{
+    margin-right: 20vw;
+}
+
+#que{
+    font-size: 3rem;
+    margin: 15px;
+    font-family: sans-serif;
+}
+
+.option{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option div{
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    margin: 10px;
+    border-radius: 15px 10px;
+    color: beige;
+}
+
+.option div:hover{
+    cursor: pointer;
+    color: rgb(63, 174, 207);
+}
+
+.option div button{
+    margin: 20px;
+    padding: 5px;
+    width: 30px;
+}
+
+.option div button:hover{
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}
+
+
+#over{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+#over h1{
+    font-size: 4rem;
+    font-family: sans-serif;
+    color: rgb(133, 60, 161);
+    margin: 20px;
+    padding: 20px;
+}
+
+#over button{
+    height: 50px;
+    width: 150px;
+    border-radius: 20px 10px;
+    font-size: large;
+}
+
+#over button:hover{
+    cursor: pointer;
+    background-color: rgb(96, 69, 139);
+}
+
+#score h1{
+    font-size: 1.5rem;
+}
+
+#sc{
+    font-size: 3rem;
+    color: white;
+}
+
+#att{
+   color: white;
+}
+
+#tot{
+    color: white;
+}
+
+#progressBarContainer {
+    width: 40%;
+    background-color: #ddd;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px;
+}
