@@ -138,3 +138,12 @@ nav div{
     margin: 0px;
     padding: 0px;
 }
+
+#homebtn{
+    margin: 10px;
+    padding: 5px;
+}
+
+#homebtn a{
+    text-decoration: none;
+}
